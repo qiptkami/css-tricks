@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./css/draggable.css"
+    />
+  </head>
+  <body>
+    <div id="draggable" class="draggable">Drag me</div>
+  </body>
+  <script>
+    const draggableElement = document.getElementById('draggable');
+    let offsetX,
+      offsetY,
+      isDragging = false;
+    draggableElement.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = e.clientX - draggableElement.getBoundingClientRect().left;
+      offsetY = e.clientY - draggableElement.getBoundingClientRect().top;
+      draggableElement.classList.add('dragging');
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const x = e.clientX - offsetX;
+      const y = e.clientY - offsetY;
+      draggableElement.style.left = x + 'px';
+      draggableElement.style.top = y + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      draggableElement.classList.remove('dragging');
+    });
+  </script>
+</html>

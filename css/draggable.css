@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+
+.wrap {
+  margin: 10% auto;
+  width: 500px;
+  height: 500px;
+  border: 1px solid #3498db;
+}
+
+.draggable {
+  width: 100px;
+  height: 50px;
+  background-color: #3498db;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.draggable.dragging {
+  opacity: 0.5;
+}

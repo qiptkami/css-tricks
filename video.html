@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <script src="main.js"></script> -->
+  </head>
+  <body>
+    <input type="file" onchange="videoChange(this)" accept="video/mp4" />
+  </body>
+  <script>
+    function videoChange(e) {
+      let file = e.files[0];
+      console.log('file: ', file);
+      let url = window.URL.createObjectURL(file);
+      const videoDom = document.createElement('video');
+      videoDom.autoplay = true;
+      videoDom.muted = true;
+      videoDom.src = url;
+      videoDom.addEventListener('loadeddata', function () {
+        let canvas = document.createElement('canvas');
+        canvas.width = videoDom.videoWidth;
+        canvas.height = videoDom.videoHeight;
+        setTimeout(() => {
+          canvas
+            .getContext('2d')
+            .drawImage(videoDom, 0, 0, canvas.width, canvas.height);
+          let firstFrameBase64 = canvas.toDataURL('image/jpg');
+          console.log(firstFrameBase64);
+        }, 50);
+      });
+    }
+  </script>
+</html>
