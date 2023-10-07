@@ -1,0 +1,39 @@
+body {
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+
+.wrap {
+  display: flex;
+}
+
+.card {
+  border: 1px solid #000;
+  margin: 10px;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.5s, transform 0.5s;
+}
+.card1 {
+  height: 800px;
+  width: 500px;
+  animation: slideIn 0.5s 0.5s forwards;
+}
+.card2 {
+  height: 490px;
+  width: 500px;
+  animation: slideIn 0.5s 1s forwards;
+}
+.card3 {
+  height: 300px;
+  width: 500px;
+  animation: slideIn 0.5s 1s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -13,7 +13,6 @@
   <script>
     function videoChange(e) {
       let file = e.files[0];
-      console.log('file: ', file);
       let url = window.URL.createObjectURL(file);
       const videoDom = document.createElement('video');
       videoDom.autoplay = true;
