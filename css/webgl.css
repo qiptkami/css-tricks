@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+
+.wrap {
+  width: 500px;
+  height: 100px;
+  overflow: auto;
+  margin: auto;
+}
+
+.header {
+}
+
+.tags {
+  display: flex;
+}
+
+.tag-item {
+  padding: 8px;
+}
